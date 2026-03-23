@@ -84,35 +84,6 @@ The relationship between the two lines tells you the coordination zone:
 | Low | High | Done for me |
 | Low | Low | Done under me |
 
-### Sample Coordination Curve
-
-The following illustrates a coordination curve for a product launch workflow. Each phase shifts between zones.
-
-```
-Human Involvement  ----    AI Salience  ....
-
-High |         *                                    *
-     |        * *            ....                  * *
-     |       *   *          .    .          ....  *   *
-     |  .....*    *   *    .      .        .    .*     *
-Mid  | .     *     * * *  .        .  *   .      *      *
-     |.      *      *   *.          .* * .       *       *
-     |       *          *.          .  *.        *
-     |        *        . *         .    .*       *
-Low  |         ****  ..   **     ..      .****  .
-     |             ..       ****..            ..
-     +----------------------------------------------------
-       Brief    Research   Strategy   Build    Launch
-       (under)  (for me)  (with me)  (for me) (with me)
-```
-
-In this example:
-- **Brief phase:** AI salience is moderate (agent is processing context), human involvement is low. Done under me.
-- **Research phase:** AI salience rises as the agent delivers findings. Human involvement stays low. Done for me.
-- **Strategy phase:** Both lines peak. Human and agent are collaborating closely on positioning. Done with me.
-- **Build phase:** Human involvement drops as the agent executes. AI salience stays elevated to keep the user informed. Done for me.
-- **Launch phase:** Both peak again as the team and agent coordinate real-time decisions. Done with me.
-
 ### Designing for the Valleys
 
 The valleys in a coordination curve, where the agent works independently, are deceptively important. These are the moments where trust is built or broken. The user cannot see what the agent is doing, and that invisibility creates risk.
