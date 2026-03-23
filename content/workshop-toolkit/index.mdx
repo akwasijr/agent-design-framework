@@ -2,14 +2,14 @@
 
 import { Tabs, Callout, Steps } from 'nextra/components'
 
-Designing agent experiences requires input from people who rarely think in terms of AI. The goal is not to ask stakeholders to design the agent, but to create conditions where their expertise surfaces naturally. Four frameworks anchor the conversation: the **Delegation Ladder** ([Parasuraman, Sheridan & Wickens, 2000](https://doi.org/10.1109/3468.844354)) places tasks on a spectrum from "Watch Me" to "Do It"; the **Trust Battery** ([Lee & See, 2004](https://doi.org/10.1518/hfes.46.1.50.30392)) tracks what charges and drains trust; the **Blast Radius Map** ([FMEA](https://asq.org/quality-resources/fmea)) sizes consequences into inner (reversible), middle (costly), and outer (irreversible) rings; and the **Information Asymmetry Grid** ([Johari Window](https://en.wikipedia.org/wiki/Johari_window)) maps what the agent knows vs what the user knows. Disagreement between stakeholders is the primary design input.
+Designing agent experiences requires input from people who rarely think in terms of AI. The goal is to create conditions where their expertise surfaces naturally. Four frameworks anchor the conversation: the **Delegation Ladder** (adapted from [Parasuraman, Sheridan & Wickens' levels of automation model, 2000](https://doi.org/10.1109/3468.844354)) places tasks on a spectrum from "Watch Me" to "Do It"; the **Trust Battery** (inspired by [Tobi Lütke's management metaphor](https://en.wikipedia.org/wiki/Tobi_L%C3%BCtke), grounded in [Lee & See's trust-in-automation research, 2004](https://doi.org/10.1518/hfes.46.1.50.30392)) tracks what charges and drains trust; the **Blast Radius Map** (adapted from [Failure Mode and Effects Analysis](https://asq.org/quality-resources/fmea)) sizes consequences into inner (reversible), middle (costly), and outer (irreversible) rings; and the **Information Asymmetry Grid** (adapted from the [Johari Window](https://en.wikipedia.org/wiki/Johari_window)) maps what the agent knows vs what the user knows. Disagreement between stakeholders is the primary design input.
 
 <Tabs items={['In-Person Workshop', 'Remote Workshop']}>
   <Tabs.Tab>
     ### In-Person Workshop
 
     <Callout>
-    You are not mapping tasks to screens. You are mapping tasks to delegation levels, trust thresholds, and failure recovery paths. Stakeholders are designing for something they have never used, so you use indirect techniques to surface requirements. Disagreement is the design input, not something to resolve.
+    The goal is mapping tasks to delegation levels, trust thresholds, and failure recovery paths. Stakeholders are designing for something they have never used, so use indirect techniques to surface requirements. Disagreement is the design input, not something to resolve.
     </Callout>
 
     <Steps>
@@ -39,7 +39,7 @@ Designing agent experiences requires input from people who rarely think in terms
     Brainstorm every way a workflow could require human involvement, even when nothing has gone wrong. Categorise: Judgment, Authority, Ethics, Novelty, Conflict, Low confidence. Each category implies a different interface pattern. The exceptions *are* the UX. See [Agent Journey Mapping](/experience-design/agent-journey-mapping).
 
     ### Values Translation
-    Stakeholders express what they care about in their own words: *"Be conservative with client money"*, *"Never send anything externally without checking with me."* Map each to a concrete agent boundary (approval gate, hard constraint, notification trigger, or autonomy limit). See [Core Principles](/design-principles/core-principles).
+    Stakeholders express what they care about in their own words: *"Be conservative with client money"*, *"Never send anything externally without checking with me."* Map each to a concrete agent boundary (approval gate, hard constraint, notification trigger, or autonomy limit). See [Core Principles](/design-principles).
 
     ### Sludge Spotting
     Present the [six forms of agentic sludge](/design-principles/agentic-sludge). For each, ask: *"Where could this show up in our agent workflow?"* Domain experts will identify realistic scenarios where the agent could undermine user control. Each maps to a counter-pattern.
@@ -79,7 +79,7 @@ Designing agent experiences requires input from people who rarely think in terms
     Participants silently type every way a workflow could require human involvement (judgment calls, authority questions, ethical tensions, novel situations). Cluster live and map each to an interface pattern. See [Agent Journey Mapping](/experience-design/agent-journey-mapping).
 
     ### Values Capture
-    Each participant types 3-5 value statements: *"Never commit budget without my sign-off"*, *"Speed matters more than perfection for internal drafts."* Group into themes and map to agent boundaries. See [Core Principles](/design-principles/core-principles).
+    Each participant types 3-5 value statements: *"Never commit budget without my sign-off"*, *"Speed matters more than perfection for internal drafts."* Group into themes and map to agent boundaries. See [Core Principles](/design-principles).
 
     </Steps>
 

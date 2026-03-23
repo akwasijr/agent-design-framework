@@ -1,6 +1,6 @@
 # Designing the Agent Itself
 
-Agents are not just backend logic: they are products with their own design requirements. How should an agent be designed as an entity?
+Agents are products with their own design requirements, not just backend logic. How should an agent be designed as an entity?
 
 ## Agent Anatomy
 
@@ -22,7 +22,7 @@ flowchart TD
 
 ## Personality Design
 
-Agents need a designed personality: not to be human, but to be **consistent and appropriate**.
+Agents need a designed personality. The goal is **consistency and appropriateness**, not human mimicry.
 
 | Dimension | Design Decision | Example |
 |---|---|---|
@@ -132,3 +132,5 @@ When designing an agent, answer:
 6. **How does it learn?**: From corrections, approvals, rejections, explicit teaching
 7. **How does it fail?**: Gracefully, transparently, with clear escalation
 8. **How does it work with other agents?**: Data sharing, handoffs, conflict resolution
+
+> For how these design decisions play out in practice, see [The Command Center Pattern](/experience-design/command-center) for status presentation, [Ambient Awareness](/experience-design/ambient-awareness) for confidence signaling in context, and [Trust Building](/design-principles/trust-building) for how trust shapes what the agent shows over time.
