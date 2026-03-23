@@ -1,0 +1,71 @@
+# Workshop Toolkit
+
+Designing agent experiences requires input from people who rarely think in terms of AI: operations leads, compliance officers, domain experts. Most stakeholders can describe how their work runs today, but very few can articulate what an agent should do, when it should ask for help, or where trust breaks down.
+
+The goal of these workshops is not to ask stakeholders to design the agent. It is to create conditions where their expertise surfaces naturally, so you can translate it into design requirements for [trust building](/design-principles/trust-building), [approval flows](/experience-design/approval-flow), [coordination zones](/experience-design/coordination-zones), and [agent behaviour boundaries](/design-principles/agentic-sludge).
+
+---
+
+## The Core Frameworks
+
+These give stakeholders a shared vocabulary for reasoning about agent behaviour. Use them to anchor every workshop conversation.
+
+### The Delegation Ladder
+
+Based on [Parasuraman, Sheridan & Wickens' Levels of Automation model](https://doi.org/10.1109/3468.844354) (2000). Automation is not binary. It exists on a spectrum.
+
+| Level | Agent Role | Human Role |
+|---|---|---|
+| **Watch Me** | Observes the human working | Performer |
+| **Help Me** | Assists when asked | Director |
+| **Advise Me** | Proactively suggests | Decision-maker |
+| **Do It, I'll Check** | Acts, human reviews before it's final | Reviewer |
+| **Do It, Tell Me** | Acts and reports after | Monitor |
+| **Do It** | Handles end to end | Escalation point |
+
+Stakeholders place every task in their domain on this ladder. The disagreements between people are the design input.
+
+### The Trust Battery
+
+Adapted from [Tobi Lutke's trust battery concept](https://fs.blog/knowledge-project-podcast/tobi-lutke/) and [Lee & See's research on trust in automation](https://doi.org/10.1518/hfes.46.1.50.30392) (2004). Every agent starts at around 50%. Successful interactions charge it. Mistakes drain it.
+
+Key questions for stakeholders:
+- What charges the battery fast? (Transparency? Speed? Accuracy?)
+- What drains it immediately?
+- At what level would you let the agent act without checking?
+- What would it take to recharge after a major drain?
+
+### The Blast Radius Map
+
+Adapted from [Failure Mode and Effects Analysis (FMEA)](https://asq.org/quality-resources/fmea). For every agent action, ask: "If the agent gets this wrong, what's the worst that happens?"
+
+Draw concentric circles:
+- **Inner ring (low impact, reversible):** Rescheduling an internal meeting, drafting a summary
+- **Middle ring (costly but reversible):** Sending an email to a client, reordering inventory
+- **Outer ring (irreversible or high impact):** Submitting a regulatory filing, transferring funds
+
+The ring determines the approval level. Inner ring tasks can be autonomous. Outer ring tasks need human confirmation.
+
+### The Information Asymmetry Grid
+
+Inspired by the [Johari Window](https://en.wikipedia.org/wiki/Johari_window) (Luft & Ingham, 1955). Agents know things users don't (data patterns at scale). Users know things agents don't (context, intent, politics).
+
+| | Agent Knows | Agent Doesn't Know |
+|---|---|---|
+| **User Knows** | Shared ground. Agent acts with confidence. | User must inform the agent. Design for easy input. |
+| **User Doesn't Know** | Agent must explain. Design for proactive disclosure. | Danger zone. Design for caution and escalation. |
+
+---
+
+## Workshop Modes
+
+See [Workshop Modes](/workshop-toolkit/workshop-modes) for the two formats: in-person (full room with whiteboards and stickies) and remote (facilitator-driven, a few hours on video call).
+
+---
+
+## References
+
+- Parasuraman, R., Sheridan, T. B. & Wickens, C. D. (2000). [A Model for Types and Levels of Human Interaction with Automation](https://doi.org/10.1109/3468.844354). *IEEE Transactions on Systems, Man, and Cybernetics*, 30(3), 286-297. The foundational taxonomy of automation levels that the Delegation Ladder adapts.
+- Lee, J. D. & See, K. A. (2004). [Trust in Automation: Designing for Appropriate Reliance](https://doi.org/10.1518/hfes.46.1.50.30392). *Human Factors*, 46(1), 50-80.
+- Lutke, T. (2018). [The Trust Battery](https://fs.blog/knowledge-project-podcast/tobi-lutke/). The Knowledge Project Podcast, Episode 41.
+- U.S. Military (1949). MIL-P-1629: Failure Mode and Effects Analysis. [Overview at ASQ](https://asq.org/quality-resources/fmea).

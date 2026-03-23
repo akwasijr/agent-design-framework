@@ -1,0 +1,57 @@
+# Banking & Finance
+
+## From Transaction Processors to Financial Governors
+
+### The Current State
+Banking runs on structured, rule-heavy, repetitive process: loan applications, compliance reviews, portfolio recommendations: even when stakes are high.
+
+### The Agent-Managed Future
+
+```mermaid
+flowchart TD
+    subgraph Fully Autonomous
+        A1[Transaction Monitoring]
+        A2[Compliance Reporting]
+    end
+    subgraph Guided
+        B1[Loan Processing]
+        B2[Portfolio Rebalancing]
+    end
+    subgraph Human Judgment
+        C1[Edge Cases]
+        C2[Ethical Decisions]
+        C3[Strategic Direction]
+    end
+
+    A1 --> B1
+    A2 --> B2
+    B1 --> C1
+    B2 --> C2
+    B1 --> C3
+```
+
+**What agents handle**:
+- Real-time transaction monitoring and anomaly detection
+- Loan processing: document verification, risk scoring, compliance checks
+- Portfolio rebalancing based on market conditions and client goals
+- Continuous regulatory reporting and compliance documentation
+- Routine client communication and account notifications
+
+**What humans handle**:
+- Setting risk appetite and strategic direction
+- Reviewing agent-flagged anomalies and edge cases
+- Complex client relationships requiring trust and judgment
+- Ethical decisions: borderline lending, bias auditing, fairness assessments
+- Regulatory interpretation when rules are ambiguous
+
+### The Experience Shift
+
+The core shift: agents handle volume processing overnight, humans make the decisions that require judgment. See [A Day With Agents](/tangible-futures/a-day-with-agents) for detailed walkthroughs across industries.
+
+### Key Design Considerations
+
+- **Auditability**: Every agent decision must be traceable and explainable for regulators
+- **Bias monitoring**: Lending and risk decisions need continuous fairness monitoring
+- **The invisible bank**: As agents interact via APIs, banks compete on **agent-friendliness**, not UI
+- **Trust calibration**: High-consequence decisions require gradual, evidence-based trust-building
+- **Cross-border complexity**: Agents must adapt to different jurisdictional regulations automatically

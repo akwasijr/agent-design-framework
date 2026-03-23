@@ -1,0 +1,136 @@
+# Interoperability & Agent Protocols
+
+## Standardizing How Agents Connect
+
+### The Emerging Question
+Agents do not exist in isolation. They access tools, query data sources, and increasingly collaborate with other agents - often from different vendors, running on different models, deployed by different organizations. Without shared protocols, every integration is custom: the "N x M" problem where N agents and M tools require N times M bespoke connectors. This is not sustainable, and it is not just an engineering concern. It is a design concern.
+
+Interoperability directly shapes what you can build:
+
+- **What capabilities an agent can offer users.** An agent that speaks standard protocols can access a growing ecosystem of tools and data. One that does not is limited to what its creator manually integrates.
+- **How multi-agent workflows appear in the UI.** When agents from different providers collaborate, your interface must represent handoffs, delegation, and shared context - none of which have established interaction patterns yet.
+- **How trust transfers between agents.** If a user trusts Agent A, and Agent A delegates a subtask to Agent B (from a different vendor), the user needs to understand what just happened and why.
+- **What governance and audit trails look like.** When a workflow spans three agents from two vendors using two protocols, who logged what? Where does accountability live?
+
+The industry is converging on answers. As of early 2026, a protocol stack is forming that designers and product managers need to understand - not at the wire-protocol level, but at the level of what it makes possible and what it demands from your product.
+
+---
+
+## The Protocol Stack
+
+Three specifications and one governance body define the current landscape. Together, they cover how agents access tools, how agents talk to each other, how agent output is structured, and who stewards the standards.
+
+### MCP - Model Context Protocol
+
+Originally developed by Anthropic and donated to the [Agentic AI Foundation](https://agenticaiinitiative.org/) under the Linux Foundation in late 2025, [MCP](https://modelcontextprotocol.io/) is the closest thing the industry has to a "USB port for AI." It standardizes how an agent connects to external data sources, APIs, and tools.
+
+**How it works.** MCP uses a client-server architecture built on JSON-RPC 2.0. An MCP server exposes capabilities - file access, database queries, function invocation, prompt and context management - through a standardized interface. An MCP client (the agent) connects to one or more servers and discovers what is available. The agent does not need to know the implementation details of each tool. It speaks MCP.
+
+**Why it matters.** Before MCP, every tool integration required custom code. A coding agent that needed to access a GitHub repository, a Jira board, and a Postgres database needed three separate integrations. With MCP, a single protocol handles all three. The agent discovers available tools, understands their interfaces, and invokes them through a common format.
+
+**Adoption.** OpenAI, Google DeepMind, AWS, Replit, and most major developer tool vendors have adopted or announced MCP support. The donation to the Linux Foundation signals that no single company controls the standard.
+
+### A2A - Agent-to-Agent Protocol
+
+Launched by Google in April 2025 with over 50 partners including Atlassian, SAP, Salesforce, MongoDB, and LangChain, [A2A](https://github.com/google/A2A) addresses a different problem: how do agents find and collaborate with other agents?
+
+**How it works.** A2A is a peer-to-peer protocol. Each agent publishes an "Agent Card" - a structured description of its capabilities, accepted inputs, output formats, and authentication requirements. Other agents discover these cards, negotiate task delegation, and collaborate without a central coordinator.
+
+**Why it matters.** MCP connects agents to tools. A2A connects agents to agents. A travel-planning agent can discover a flight-booking agent, a hotel agent, and an expense-reporting agent, negotiate what each will handle, and orchestrate the workflow - even if all four agents come from different vendors.
+
+**The relationship to MCP.** These protocols are complementary, not competing. MCP is vertical (agent reaches down to tools and data). A2A is horizontal (agent reaches across to other agents). A well-designed agent system uses both.
+
+### Open Responses Specification
+
+Proposed by OpenAI, the [Open Responses spec](https://github.com/openai/open-responses) standardizes how agentic workflows, tool calls, and reasoning steps are structured in agent output. It provides a common format for representing what an agent did, what tools it called, and how it arrived at its response - regardless of the underlying model.
+
+**Why it matters for design.** A standard output format means your UI can parse and display agent reasoning, tool usage, and decision chains consistently, even when the agents behind the interface change.
+
+### Agentic AI Foundation
+
+Co-founded by OpenAI, Anthropic, Google, and Microsoft under the [Linux Foundation](https://www.linuxfoundation.org/), this [governance body](https://agenticaiinitiative.org/) stewards MCP and works toward shared safety standards for agentic systems. It represents the industry's equivalent of a "W3C moment" - the point where competing vendors agree that shared infrastructure benefits everyone.
+
+---
+
+## MCP vs. A2A at a Glance
+
+| | MCP | A2A |
+|---|---|---|
+| **Focus** | Agent to tools and data | Agent to agent |
+| **Model** | Client-server | Peer-to-peer |
+| **Discovery** | Server endpoints | Agent Cards |
+| **Governance** | Linux Foundation (Agentic AI Foundation) | Google + 50 partners |
+| **Primary use case** | Access databases, APIs, files, functions | Delegate tasks, negotiate, collaborate |
+| **Analogy** | USB port - plug any tool in | Business card exchange - find and hire specialists |
+
+These are not alternatives. A production agent system will likely use MCP to access tools and A2A to coordinate with other agents.
+
+---
+
+## Design Implications
+
+### Multi-Agent Interfaces
+
+When agents from different vendors collaborate on a user's behalf, the interface must make this legible.
+
+**Agent Cards as UI elements.** A2A Agent Cards are machine-readable, but users need human-readable versions. Consider: what does it look like when your agent brings in a specialist? The user needs to see what the specialist agent can do, what data it will access, who built it, and what trust signals it carries. This is a new UI pattern - an inline agent profile that appears at the moment of delegation.
+
+**Trust across boundaries.** Your trust framework (confidence indicators, human-in-the-loop checkpoints, escalation paths) was likely designed for a single agent. In a multi-agent workflow, trust becomes transitive and contextual. If Agent A has earned high trust through demonstrated performance, and Agent A delegates to Agent B, the user's trust in the outcome depends on both agents - and on the quality of the handoff. Designing for this requires visible delegation chains: who asked whom to do what, and what each agent contributed.
+
+**Handoff visualization.** When Agent A passes a task to Agent B, that transition needs to be visible. The user should understand why the handoff happened (Agent A lacks the capability), what was transferred (context, constraints, partial results), and what Agent B will do with it. This is analogous to how a project manager would explain bringing in a subcontractor - except it happens in seconds and needs to be legible at a glance.
+
+### Governance Dashboards
+
+Interoperability makes governance harder and more important.
+
+**Cross-agent audit trails.** A single user request might trigger Agent A (your product) to query a database via MCP, delegate a subtask to Agent B (a partner's product) via A2A, which in turn calls an API via MCP. Your governance dashboard needs to represent this entire chain - not just the parts that happened inside your system.
+
+**Policy enforcement across boundaries.** Your organization's data policies do not automatically apply to Agent B. When designing governance interfaces, surface where policy boundaries exist: this data stayed within your system, this data was shared with an external agent, this external agent operates under a different compliance regime.
+
+**Data flow visualization.** Users with governance responsibilities need to see what data moved where, through which protocols, and under what authority. This is a new category of interface - part network diagram, part audit log, part access control matrix.
+
+### Agent Marketplaces
+
+Standard protocols enable a new product category: marketplaces where users discover, evaluate, and compose agent teams.
+
+**Standardized capability descriptions.** Agent Cards provide a machine-readable format. Your marketplace UI translates these into human-readable capability listings - what the agent does, what data it needs, what protocols it supports, what its track record looks like.
+
+**Interoperability indicators.** Users need to know at a glance whether an agent will work with their existing setup. Consider badges or compatibility indicators: MCP-compatible, A2A-compatible, certified by a specific governance body.
+
+**Composability.** The end state is users assembling teams of specialized agents from different vendors, much like assembling a project team from different consultancies. Your design must support this: adding agents, defining their roles, setting collaboration rules, monitoring their interactions, and intervening when something goes wrong.
+
+---
+
+## What This Means for the Framework
+
+If you are building with the agent design framework described in this documentation, interoperability touches three layers directly.
+
+**Execution Layer.** Your agent's execution layer must now include protocol support. MCP compatibility determines what tools and data your agent can access. A2A compatibility determines whether your agent can participate in multi-agent workflows. These are not optional add-ons - they are table stakes for any agent that will operate in an enterprise environment.
+
+**Governance Layer.** Cross-agent accountability is fundamentally harder than single-agent accountability. Your governance layer must handle audit trails that span multiple agents, multiple vendors, and multiple protocols. It must represent policy boundaries and flag when data or decisions cross them.
+
+**Coordination Model.** The coordination curves described elsewhere in this framework - the relationship between agent autonomy and human oversight - now span multiple agents from multiple vendors. A task that starts with high human oversight might be delegated to an agent that operates with high autonomy. Your coordination model must account for this, and your interface must make it visible.
+
+---
+
+## Open Questions
+
+These protocols are maturing rapidly, but several design-relevant questions remain unresolved.
+
+**Transitive trust.** If a user trusts Agent A, and Agent A delegates to Agent B, what is the user's trust level with Agent B? Is trust transitive? Should it decay with each hop? Current protocols do not define this - your product will need to.
+
+**Multi-vendor liability.** When a workflow spans agents from three different vendors and something goes wrong, who is liable? The vendor whose agent made the final decision? The vendor whose agent initiated the chain? The user who assembled the team? Legal frameworks have not caught up, which means your product's error handling and accountability interfaces are operating without clear precedent.
+
+**Cross-boundary auditing.** How do you audit a workflow that spans five agents from three vendors using two protocols? Each vendor logs differently, each agent has different observability, and the full picture exists nowhere. Governance dashboards that synthesize cross-boundary audit data are an unsolved design problem.
+
+**Protocol evolution.** MCP and A2A are young. They will change. Your product must be designed to accommodate protocol updates without breaking the user's mental model of how their agents work. This is a versioning and migration design problem as much as an engineering one.
+
+**Discovery at scale.** When thousands of agents publish Agent Cards, how does a user find the right one? Search, recommendation, and curation interfaces for agent marketplaces are a wide-open design space.
+
+---
+
+## The Bottom Line
+
+Interoperability protocols are moving agent design from closed, single-vendor systems to open, composable ecosystems. This is a fundamental shift. It means your product's capabilities are no longer limited to what you build - they extend to everything your agent can connect to via MCP and everyone your agent can collaborate with via A2A.
+
+For designers and product managers, the implication is concrete: you now need to design for agent discovery, cross-agent trust, multi-vendor audit trails, and workflow handoffs that span organizational boundaries. These are new interaction patterns without established conventions. The protocols provide the plumbing. What the experience looks like is yours to define.

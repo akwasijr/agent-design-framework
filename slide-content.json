@@ -1,0 +1,405 @@
+{
+  "deck": {
+    "title": "Agent Design Framework",
+    "subtitle": "A Thinking Framework for Agent-Managed Work",
+    "totalSlides": 29
+  },
+  "slides": [
+    {
+      "id": 1,
+      "type": "hero",
+      "title": "Design for Agent-Managed Work",
+      "subtitle": "A framework for the next paradigm",
+      "note": "Every knowledge worker becomes a manager"
+    },
+    {
+      "id": 2,
+      "type": "quote",
+      "quote": "Every knowledge worker becomes a manager. The product they use is a management tool. The skill they need is judgment, not execution.",
+      "attribution": "The Core Premise"
+    },
+    {
+      "id": 3,
+      "type": "section",
+      "title": "Recognize the Gap",
+      "subtitle": "The Problem",
+      "body": "Agent technology is advancing rapidly. Design thinking hasn't kept up."
+    },
+    {
+      "id": 4,
+      "type": "three_col",
+      "title": "Bridge Three Missing Layers",
+      "columns": [
+        {
+          "heading": "Experience",
+          "bullets": [
+            "No agent design language",
+            "Task interfaces for post-task world",
+            "Need intent & judgment patterns"
+          ]
+        },
+        {
+          "heading": "Accessibility",
+          "bullets": [
+            "Agent creation is technical",
+            "Must be spreadsheet-easy",
+            "Domain expertise over code"
+          ]
+        },
+        {
+          "heading": "Governance",
+          "bullets": [
+            "No standard agent boundaries",
+            "No decision audit trails",
+            "Essential for regulated industries"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "type": "section",
+      "title": "Shift From Doing to Managing",
+      "subtitle": "The Core Insight",
+      "body": "Humans stop doing work. They start managing agents that do."
+    },
+    {
+      "id": 6,
+      "type": "comparison",
+      "title": "Embrace the Paradigm Shift",
+      "left": {
+        "heading": "Today: You Do Work",
+        "bullets": [
+          "Loan officer processes applications",
+          "Marketer creates campaigns",
+          "Doctor documents encounters",
+          "Clerk reviews permits",
+          "Teacher grades assignments"
+        ]
+      },
+      "right": {
+        "heading": "Tomorrow: You Manage Agents",
+        "bullets": [
+          "Set risk parameters, judge edges",
+          "Define brand, review strategy",
+          "Oversee agent care team",
+          "Govern agent-processed permits",
+          "Design journeys, agents deliver"
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "type": "grid",
+      "title": "Map the Role Transformation",
+      "rows": [
+        { "before": "Processor", "after": "Governor", "shift": "Doing → Overseeing" },
+        { "before": "Assessor", "after": "Adjudicator", "shift": "Evaluating → Judging" },
+        { "before": "Creator", "after": "Creative Director", "shift": "Making → Directing" },
+        { "before": "Practitioner", "after": "Care Architect", "shift": "Treating → Orchestrating" },
+        { "before": "Operator", "after": "Systems Orchestrator", "shift": "Running → Optimizing" },
+        { "before": "Instructor", "after": "Learning Architect", "shift": "Teaching → Designing" }
+      ]
+    },
+    {
+      "id": 8,
+      "type": "section",
+      "title": "Trace the Evolution Path",
+      "subtitle": "Three Phases",
+      "body": "From developer tools to agent-native products"
+    },
+    {
+      "id": 9,
+      "type": "process",
+      "title": "Navigate Three Evolution Phases",
+      "steps": [
+        {
+          "label": "Phase 1: Developer Tools",
+          "bullets": [
+            "Access requires programming",
+            "Observability is primitive",
+            "Guardrails are ad hoc",
+            "Agents are siloed"
+          ]
+        },
+        {
+          "label": "Phase 2: Agent Platforms",
+          "bullets": [
+            "No-code agent creation",
+            "Standardized observability",
+            "Governance as product feature",
+            "Cross-system agents emerge"
+          ]
+        },
+        {
+          "label": "Phase 3: Agent-Native",
+          "bullets": [
+            "Products become agent-consumable",
+            "Agent marketplaces launch",
+            "Agent-to-agent collaboration",
+            "Institutional agent knowledge"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "type": "section",
+      "title": "Envision the Tangible Future",
+      "subtitle": "What Changes",
+      "body": "Concrete before-and-after of digital experience"
+    },
+    {
+      "id": 11,
+      "type": "comparison",
+      "title": "Replace Old Patterns With New",
+      "left": {
+        "heading": "What Disappears",
+        "bullets": [
+          "Navigation menus",
+          "Search bars",
+          "Forms and data entry",
+          "Notification overload",
+          "Dashboards you check",
+          "Settings panels"
+        ]
+      },
+      "right": {
+        "heading": "What Emerges",
+        "bullets": [
+          "The morning briefing",
+          "The proposal card",
+          "The exception queue",
+          "The trust dial",
+          "The choreography map",
+          "The teaching moment"
+        ]
+      }
+    },
+    {
+      "id": 12,
+      "type": "chart",
+      "title": "See a Day With Agents",
+      "subtitle": "Insurance Claims Manager — Overnight Processing",
+      "chartData": {
+        "type": "pie",
+        "labels": ["Resolved Automatically", "Declined With Reason", "Escalated to Human"],
+        "values": [72, 7, 5],
+        "total": 84,
+        "unit": "claims"
+      },
+      "callout": "45 minutes of judgment. Zero paperwork."
+    },
+    {
+      "id": 13,
+      "type": "comparison",
+      "title": "Reclaim Your Highest Value",
+      "left": {
+        "heading": "Today",
+        "bullets": [
+          "Wading through email first",
+          "Processing and documenting",
+          "Hunting for information",
+          "Routine consumes 60–80%",
+          "Unique value buried in admin"
+        ]
+      },
+      "right": {
+        "heading": "With Agents",
+        "bullets": [
+          "Clear briefing in minutes",
+          "Judging and deciding",
+          "Info assembled for you",
+          "Routine handled by agents",
+          "Unique value is your focus"
+        ]
+      }
+    },
+    {
+      "id": 14,
+      "type": "three_col",
+      "title": "Master Three Interaction Modes",
+      "columns": [
+        {
+          "heading": "Delegate",
+          "bullets": [
+            "Set goals, walk away",
+            "Agent works independently",
+            "Reports back on completion",
+            "Best for routine, low-risk"
+          ]
+        },
+        {
+          "heading": "Supervise",
+          "bullets": [
+            "Agent works, you watch",
+            "Approve before it ships",
+            "Agent recommends, you decide",
+            "Best for trust-building work"
+          ]
+        },
+        {
+          "heading": "Collaborate",
+          "bullets": [
+            "Real-time back-and-forth",
+            "Neither fully in charge",
+            "Co-create and brainstorm",
+            "Best for creative, complex"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "type": "section",
+      "title": "Design the Agent Experience",
+      "subtitle": "Experience Patterns",
+      "body": "New interfaces for managing, not performing"
+    },
+    {
+      "id": 16,
+      "type": "key_message",
+      "title": "Start With a Command Center",
+      "subtitle": "One surface replaces fragmented multi-app workflow",
+      "bullets": [
+        "Completed work summary",
+        "Pending decisions queue",
+        "Blocked items flagged",
+        "Performance signals surfaced",
+        "Exception queue prioritized"
+      ]
+    },
+    {
+      "id": 17,
+      "type": "process",
+      "title": "Build the Approval Flow",
+      "subtitle": "The core UX primitive of agent-managed work",
+      "steps": [
+        { "label": "Agent Proposes", "bullets": ["Action + reasoning + risk"] },
+        { "label": "Human Reviews", "bullets": ["Context to decide quickly"] },
+        { "label": "Human Decides", "bullets": ["Approve, adjust, or reject"] },
+        { "label": "Agent Learns", "bullets": ["Feedback refines future behavior"] }
+      ],
+      "callout": "Trust is earned, not configured"
+    },
+    {
+      "id": 18,
+      "type": "metrics",
+      "title": "Calibrate Ambient Awareness",
+      "subtitle": "From active monitoring to peripheral consciousness",
+      "items": [
+        { "label": "High Urgency + Low Confidence", "action": "Interrupt immediately" },
+        { "label": "High Urgency + High Confidence", "action": "Brief notification" },
+        { "label": "Low Urgency + Low Confidence", "action": "Queue for review" },
+        { "label": "Low Urgency + High Confidence", "action": "Handle silently" }
+      ],
+      "callout": "Silence should feel like competence"
+    },
+    {
+      "id": 19,
+      "type": "section",
+      "title": "Apply Five Design Principles",
+      "subtitle": "Design Principles",
+      "body": "The foundation for every agent-managed product"
+    },
+    {
+      "id": 20,
+      "type": "statement",
+      "title": "Show Outcomes, Not Processes",
+      "body": "Humans care about results. Process details on demand only.",
+      "contrast": {
+        "wrong": "Processed record 4,532 of 12,000",
+        "right": "Portfolio rebalanced. Savings: $45K."
+      }
+    },
+    {
+      "id": 21,
+      "type": "statement",
+      "title": "Surface Exceptions, Hide Routine",
+      "body": "Human attention is the scarcest resource. Only interrupt when it genuinely matters.",
+      "contrast": {
+        "wrong": "Everything dashboard showing all actions",
+        "right": "47 processed normally. 2 need you."
+      }
+    },
+    {
+      "id": 22,
+      "type": "statement",
+      "title": "Earn Trust Through Demonstrated Competence",
+      "body": "Trust is built incrementally — not toggled on.",
+      "stages": ["Supervised", "Guided", "Collaborative", "Trusted"]
+    },
+    {
+      "id": 23,
+      "type": "statement",
+      "title": "Express Values, Not Settings",
+      "body": "Humans speak intent. Systems translate to parameters.",
+      "contrast": {
+        "wrong": "risk_score_threshold: 0.65",
+        "right": "Be conservative. When unsure, ask."
+      }
+    },
+    {
+      "id": 24,
+      "type": "statement",
+      "title": "Make Agent Creation Accessible",
+      "body": "As natural as making a spreadsheet. Domain expertise over code.",
+      "steps": ["Start with intent", "Define work", "Set boundaries", "Test & refine", "Deploy & evolve"]
+    },
+    {
+      "id": 25,
+      "type": "section",
+      "title": "Transform Every Industry",
+      "subtitle": "Industry Perspectives",
+      "body": "Agent-managed work across seven sectors"
+    },
+    {
+      "id": 26,
+      "type": "grid",
+      "title": "Reimagine Roles Across Industries",
+      "rows": [
+        { "industry": "Banking & Finance", "before": "Transaction Processors", "after": "Financial Governors" },
+        { "industry": "Insurance", "before": "Claims Assessors", "after": "Risk Adjudicators" },
+        { "industry": "Healthcare", "before": "Clinical Practitioners", "after": "Care Orchestrators" },
+        { "industry": "Marketing", "before": "Campaign Creators", "after": "Brand Architects" },
+        { "industry": "Manufacturing", "before": "Plant Operators", "after": "Systems Conductors" },
+        { "industry": "Government", "before": "Public Administrators", "after": "Citizen Stewards" }
+      ],
+      "footer": "Also: Education — Instructors → Learning Architects"
+    },
+    {
+      "id": 27,
+      "type": "section",
+      "title": "Confront Emerging Challenges",
+      "subtitle": "Emerging Considerations",
+      "body": "Open questions that will shape the paradigm"
+    },
+    {
+      "id": 28,
+      "type": "bullets",
+      "title": "Navigate Six Frontier Questions",
+      "bullets": [
+        { "heading": "Agent Identity", "detail": "Trackable, verifiable, accountable" },
+        { "heading": "Agent Economies", "detail": "Machines negotiate with machines" },
+        { "heading": "Emotional Design", "detail": "Beyond functional competence" },
+        { "heading": "The Last Mile", "detail": "Digital decisions, physical world" },
+        { "heading": "Regulatory Frameworks", "detail": "Laws assume human decision-makers" },
+        { "heading": "Digital Divide 2.0", "detail": "Agent access is next inequality" }
+      ]
+    },
+    {
+      "id": 29,
+      "type": "quote",
+      "quote": "How do humans maintain meaningful control, understanding, and purpose in a world where agents do most of the work?",
+      "attribution": "The Design Question",
+      "callout": "This is as much philosophical as it is a design question."
+    },
+    {
+      "id": 30,
+      "type": "hero",
+      "title": "Start Designing for Agent-Managed Work",
+      "subtitle": "The patterns we set now define the paradigm",
+      "callToAction": "agentdesignframework.com"
+    }
+  ]
+}

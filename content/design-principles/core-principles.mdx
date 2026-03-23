@@ -1,0 +1,97 @@
+# Core Design Principles
+
+Three principles that shape how agent interfaces should present information and accept input. These work together: outcomes tell you what happened, exceptions tell you what needs you, and values tell the agent how to behave.
+
+## Outcomes Over Processes
+
+When agents do work, humans care about the **outcome**, not the steps. Every interface element should answer: "What was the result?"
+
+**Don't show**: "Agent processed record 4,532 of 12,000. Step 3 of 7: Validating compliance requirements."
+
+**Show instead**: "Portfolio rebalancing complete. Estimated annual savings: $45K. 3 positions require your review."
+
+### The Information Hierarchy
+
+1. **Outcome**: What was achieved? (Always visible)
+2. **Impact**: What does this mean? (Always visible)
+3. **Decisions remaining**: What needs the human? (Always visible)
+4. **Summary of approach**: How did the agent do it? (On demand)
+5. **Detailed process log**: Every step taken (For audit)
+
+Levels 1-3 are the default view. Levels 4-5 are progressive disclosure: available but never cluttering the primary interface.
+
+Process details create cognitive overhead without adding value. Outcome focus enables faster decision-making. And the management experience scales: 5 agents or 50, you're reviewing outcomes.
+
+**The exception**: Process matters when outcomes are wrong, audits are required, or trust is still forming. Design for easy access to process details without making them the default.
+
+---
+
+## Exceptions Over Routine
+
+Human attention is the scarcest resource. Only interrupt when the situation genuinely requires human involvement.
+
+### The Exception Categories
+
+| Category | Example | Response Pattern |
+|---|---|---|
+| **Judgment needed** | Loan applicant with unusual income pattern | Present analysis + options |
+| **Authority exceeded** | Expenditure above approved limit | Request approval |
+| **Ethical dimension** | Compassionate exception to a policy | Present context + values at stake |
+| **Novel situation** | Unprecedented regulatory change | Flag + request guidance |
+| **Confidence gap** | Multiple equally probable diagnoses | Present uncertainty honestly |
+| **Conflict** | Speed vs. quality trade-off | Present the trade-off |
+
+### Designing the Routine Boundary
+
+The hardest problem is where to draw the line. Use a dynamic boundary that adjusts based on:
+- Agent track record (more correct decisions = wider boundary)
+- Stakes involved (higher consequences = narrower boundary)
+- Human feedback ("you didn't need to show me that")
+- Organizational policy (some things always require review)
+
+### The Quiet Confidence Problem
+
+Silent routine work requires humans to trust things are fine. Support this with:
+- Periodic summaries: "47 items processed normally today"
+- Anomaly absence confirmation: "No unusual patterns detected"
+- Performance trends: "Accuracy remains at 99.2%"
+
+Silence should feel like competence, not absence.
+
+**Anti-pattern: The Everything Dashboard.** Showing every action and decision defeats agent-managed work. If humans review everything, they might as well do the work themselves. The courage of this principle is in what you choose not to show.
+
+---
+
+## Values Over Settings
+
+Humans should express what they care about in natural human terms, not technical thresholds or configuration panels.
+
+### The Contrast
+
+| Technical Settings (Wrong) | Values-Based Expression (Right) |
+|---|---|
+| `response_time_sla: 3600` | "Respond to client emails within a business day" |
+| `risk_score_threshold: 0.65` | "Be conservative. When you're unsure, ask me" |
+| `max_autonomy_level: 3` | "Handle routine tasks, but check with me on anything unusual" |
+| `sentiment_target: positive` | "Keep our communication warm and genuine" |
+| `escalation_matrix: [config]` | "If a customer seems upset, bring me in immediately" |
+
+Technical settings exclude non-technical users, create an abstraction gap between parameters and real-world impact, imply false precision, and require constant maintenance. Values are universal, contextual, meaningful, and stable.
+
+### The Translation Layer
+
+Values get translated into operational parameters behind the scenes. This is the system's job, not the user's. When uncertain, the system asks in human terms:
+- "When you say 'conservative,' do you mean: (a) always choose the safer option, or (b) avoid high-risk but still pursue moderate opportunities?"
+
+### Value Conflicts
+
+When values conflict, surface the tension: "You've prioritized both speed and accuracy. In this situation, those are in tension. What matters more here?" This builds a richer behavioural model over time.
+
+### Organisational Values Architecture
+
+Values operate in layers:
+1. **Non-negotiable**: Organisation-set. Cannot be overridden. "Never share customer financial data externally."
+2. **Recommended**: Leadership-set. Adjustable with justification. "Prefer conservative risk assessments for new customers."
+3. **Personal**: User-set. "I like concise summaries. Don't repeat information I've already seen."
+
+When personal and organisational values conflict, make the constraint visible.

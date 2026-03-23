@@ -1,0 +1,310 @@
+{
+  "meta": {
+    "name": "Agent Design Framework",
+    "topic": "AI agents managing work for humans",
+    "aesthetic": "Futuristic, trustworthy, professional, forward-looking",
+    "inspiration": "Apple WWDC / Tesla AI Day keynotes"
+  },
+
+  "style": "tech-keynote",
+
+  "palette": {
+    "description": "Agent-specific palette: deep space dark anchors trust, cyan-teal signals autonomous intelligence, warm amber marks human-in-the-loop moments",
+    "bg": {
+      "dark": "0B0F1A",
+      "darkCard": "141929",
+      "light": "F0F2F7",
+      "lightCard": "FFFFFF"
+    },
+    "accent": {
+      "primary": "00E5C8",
+      "primaryRgb": "0, 229, 200",
+      "description": "Teal-cyan — signals machine intelligence, autonomy, agent 'alive' state",
+      "secondary": "7B61FF",
+      "secondaryRgb": "123, 97, 255",
+      "description2": "Electric violet — represents neural networks, reasoning, cognition",
+      "warm": "FF8F44",
+      "warmRgb": "255, 143, 68",
+      "warmDescription": "Amber — human-in-the-loop, alerts, handoff moments"
+    },
+    "text": {
+      "white": "FFFFFF",
+      "light": "CBD1E0",
+      "dark": "1A1D2E",
+      "muted": "6B7394",
+      "mutedOnLight": "5A607A"
+    },
+    "usage": {
+      "primary60": "bg.dark — used on 60-70% of slides as dominant background",
+      "secondary30": "bg.darkCard / bg.light — panels, cards, sandwich slides",
+      "accent10": "accent.primary / accent.secondary — headlines, icons, data viz, CTAs"
+    }
+  },
+
+  "typography": {
+    "scale": "ELITE (Apple keynote level)",
+    "fonts": {
+      "header": "Georgia",
+      "body": "Calibri"
+    },
+    "maxFamilies": 2,
+    "maxSizesPerSlide": 4,
+    "levels": {
+      "hero": {
+        "fontSize": 72,
+        "fontFace": "Georgia",
+        "bold": true,
+        "color": "FFFFFF",
+        "usage": "Title slide only — one per deck"
+      },
+      "section": {
+        "fontSize": 54,
+        "fontFace": "Georgia",
+        "bold": true,
+        "color": "FFFFFF",
+        "usage": "Section divider slides"
+      },
+      "slideTitle": {
+        "fontSize": 44,
+        "fontFace": "Georgia",
+        "bold": true,
+        "color": "FFFFFF",
+        "usage": "Content slide titles, left-aligned"
+      },
+      "slideTitleOnLight": {
+        "fontSize": 44,
+        "fontFace": "Georgia",
+        "bold": true,
+        "color": "1A1D2E",
+        "usage": "Content slide titles on light backgrounds"
+      },
+      "bodyLarge": {
+        "fontSize": 32,
+        "fontFace": "Calibri",
+        "bold": false,
+        "color": "CBD1E0",
+        "usage": "Key messages, comparison headers, callout text"
+      },
+      "body": {
+        "fontSize": 24,
+        "fontFace": "Calibri",
+        "bold": false,
+        "color": "CBD1E0",
+        "usage": "Primary body text — always left-aligned"
+      },
+      "bodyOnLight": {
+        "fontSize": 24,
+        "fontFace": "Calibri",
+        "bold": false,
+        "color": "1A1D2E",
+        "usage": "Body text on light backgrounds"
+      },
+      "caption": {
+        "fontSize": 18,
+        "fontFace": "Calibri",
+        "bold": false,
+        "color": "6B7394",
+        "usage": "Labels, footnotes, axis labels, source citations"
+      }
+    }
+  },
+
+  "spacing": {
+    "unit": "inches",
+    "gutter": 1.1,
+    "gutterNote": "100-120px equivalent — breathing room from slide edges",
+    "cardGap": 0.4,
+    "cardGapNote": "Space between adjacent cards/panels",
+    "elementPad": 0.3,
+    "elementPadNote": "Internal padding within cards and shape containers",
+    "sectionGap": 0.5,
+    "sectionGapNote": "Vertical space between major content blocks on a slide"
+  },
+
+  "motif": {
+    "name": "icons-in-teal-circles",
+    "description": "Every slide gets at least one react-icons/fa icon rendered inside a colored circle",
+    "library": "react-icons/fa",
+    "circleSpec": {
+      "shape": "OVAL",
+      "sizePx": 64,
+      "sizeInches": 0.67,
+      "fillColor": "00E5C8",
+      "fillOpacity": 15,
+      "borderColor": "00E5C8",
+      "borderWidth": 1.5
+    },
+    "iconColor": "00E5C8",
+    "iconSizePx": 32,
+    "suggestedIcons": {
+      "agent": "FaRobot",
+      "workflow": "FaProjectDiagram",
+      "delegation": "FaShareAlt",
+      "reasoning": "FaBrain",
+      "memory": "FaDatabase",
+      "tools": "FaWrench",
+      "humanLoop": "FaUserShield",
+      "orchestration": "FaSitemap",
+      "performance": "FaChartLine",
+      "security": "FaLock",
+      "integration": "FaPlug",
+      "communication": "FaComments",
+      "planning": "FaClipboardList",
+      "execution": "FaPlay",
+      "monitoring": "FaEye"
+    },
+    "placement": "Top-left of content area or inline with section headers"
+  },
+
+  "shadows": {
+    "note": "CRITICAL: NEVER reuse shadow objects in pptxgenjs — always call factory functions to get fresh instances",
+    "cardShadow": {
+      "factoryName": "createCardShadow",
+      "implementation": "() => ({ type: 'outer', blur: 8, offset: 3, angle: 270, color: '000000', opacity: 0.25 })",
+      "spec": {
+        "type": "outer",
+        "blur": 8,
+        "offset": 3,
+        "angle": 270,
+        "color": "000000",
+        "opacity": 0.25
+      }
+    },
+    "darkCardShadow": {
+      "factoryName": "createDarkCardShadow",
+      "implementation": "() => ({ type: 'outer', blur: 12, offset: 4, angle: 270, color: '000000', opacity: 0.5 })",
+      "spec": {
+        "type": "outer",
+        "blur": 12,
+        "offset": 4,
+        "angle": 270,
+        "color": "000000",
+        "opacity": 0.5
+      }
+    },
+    "accentGlow": {
+      "factoryName": "createAccentGlow",
+      "implementation": "() => ({ type: 'outer', blur: 20, offset: 0, angle: 0, color: '00E5C8', opacity: 0.15 })",
+      "spec": {
+        "type": "outer",
+        "blur": 20,
+        "offset": 0,
+        "angle": 0,
+        "color": "00E5C8",
+        "opacity": 0.15
+      }
+    }
+  },
+
+  "transitions": {
+    "rule": "Apply to EVERY slide — no exceptions",
+    "spec": {
+      "type": "fade",
+      "speed": 0.6
+    }
+  },
+
+  "slideMasters": {
+    "DARK_BG": {
+      "background": { "color": "0B0F1A" },
+      "decorativeShape": {
+        "description": "Subtle gradient arc in bottom-right corner — signals depth and futurism",
+        "type": "arc",
+        "position": { "x": 7.5, "y": 4.0, "w": 3.0, "h": 3.0 },
+        "fill": {
+          "type": "gradient",
+          "stops": [
+            { "position": 0, "color": "00E5C8", "opacity": 6 },
+            { "position": 100, "color": "0B0F1A", "opacity": 0 }
+          ]
+        },
+        "line": { "color": "00E5C8", "width": 0.5, "opacity": 8 }
+      },
+      "titleArea": { "x": 1.1, "y": 0.6, "w": 7.8, "align": "left" },
+      "contentArea": { "x": 1.1, "y": 1.6, "w": 7.8, "h": 4.5 },
+      "usage": "Default for 60-70% of slides — main content, comparisons, diagrams"
+    },
+    "LIGHT_BG": {
+      "background": { "color": "F0F2F7" },
+      "titleArea": { "x": 1.1, "y": 0.6, "w": 7.8, "align": "left" },
+      "contentArea": { "x": 1.1, "y": 1.6, "w": 7.8, "h": 4.5 },
+      "cardStyle": {
+        "fill": "FFFFFF",
+        "cornerRadius": 0.1,
+        "shadow": "USE createCardShadow() — fresh instance per card"
+      },
+      "usage": "Sandwich slides — break visual monotony every 3-4 dark slides"
+    },
+    "SECTION": {
+      "background": { "color": "0B0F1A" },
+      "decorativeShape": {
+        "description": "Full-width thin accent line above the section title",
+        "type": "line",
+        "position": { "x": 3.5, "y": 2.3, "w": 3.0, "h": 0 },
+        "line": { "color": "00E5C8", "width": 2, "opacity": 40 }
+      },
+      "titleArea": { "x": 1.5, "y": 2.5, "w": 7.0, "align": "center" },
+      "subtitleArea": { "x": 2.0, "y": 3.4, "w": 6.0, "align": "center" },
+      "usage": "Section dividers — centered titles, minimal content, pause-and-breathe moments"
+    }
+  },
+
+  "rules": [
+    "NEVER place accent-colored lines or bars directly under slide titles",
+    "NEVER reuse pptxgenjs option objects — always create fresh objects or call factory functions",
+    "NEVER use # prefix in hex color strings — pptxgenjs expects raw hex like 00E5C8 not #00E5C8",
+    "Do NOT center body text — always left-align; center alignment is ONLY for titles on SECTION slides",
+    "Every slide MUST have at least one visual element: icon-in-circle motif, shape, chart, or image",
+    "Use maximum 2 font families across the entire deck: Georgia for headers, Calibri for body",
+    "Use maximum 4 font sizes on any single slide — pick from the typography scale",
+    "NEVER repeat the same layout on consecutive slides — vary between full-width, 2-col, 3-col, card grid, chart",
+    "Use { bullet: true } for bullet lists — never use unicode bullet characters like • or ▸",
+    "Use { breakLine: true } when passing multi-line text as arrays to pptxgenjs",
+    "Set { margin: 0 } on text options when precise alignment with adjacent shapes is needed",
+    "Do NOT use ROUNDED_RECTANGLE shape with accent-colored borders — it renders inconsistently",
+    "Include at least 1 chart slide (bar, doughnut, or line) for data-driven content",
+    "Apply transitions { type: 'fade', speed: 0.6 } to every single slide — no exceptions",
+    "Maintain the 60-30-10 color ratio: 60% dark bg, 30% secondary surfaces, 10% accent pops",
+    "Icon motif circles use low-opacity fill (15%) with a thin accent border — not solid fill",
+    "Cards on dark backgrounds use darkCard fill (141929) — never transparent or pure black",
+    "Cards on light backgrounds use white fill (FFFFFF) with outer shadow from createCardShadow()",
+    "Keep gutter spacing at 1.1 inches from all slide edges for consistent breathing room",
+    "Section divider slides should have NO body text — only section title and optional subtitle"
+  ],
+
+  "layoutVariations": {
+    "description": "Rotate through these layouts — never use the same one twice in a row",
+    "options": [
+      {
+        "name": "full-width-statement",
+        "columns": 1,
+        "usage": "Bold single-message slides, key insights"
+      },
+      {
+        "name": "two-column",
+        "columns": 2,
+        "usage": "Before/after, comparisons, text + visual"
+      },
+      {
+        "name": "three-card-row",
+        "columns": 3,
+        "usage": "Feature highlights, pillars, triple comparisons"
+      },
+      {
+        "name": "chart-with-callout",
+        "columns": "chart + sidebar",
+        "usage": "Data slides — chart on left, key takeaway on right"
+      },
+      {
+        "name": "icon-grid",
+        "columns": "2x2 or 2x3",
+        "usage": "Feature overviews, capability matrices"
+      },
+      {
+        "name": "timeline-horizontal",
+        "columns": "sequential",
+        "usage": "Process flows, agent lifecycle stages"
+      }
+    ]
+  }
+}

@@ -1,0 +1,55 @@
+# Healthcare & Life Sciences
+
+## From Clinical Practitioners to Care Orchestrators
+
+### The Current State
+Healthcare professionals spend disproportionate time on **administration**: charting, scheduling, billing, prior authorizations. Burnout is partly a documentation problem. Patients experience fragmented care across disconnected systems.
+
+### The Agent-Managed Future
+
+```mermaid
+flowchart LR
+    A[Patient Data] --> B[Documentation]
+    B --> C[Diagnostics]
+    C --> D[Complex Diagnosis]
+    D --> E[Scheduling]
+    E --> F[Follow-up]
+    F --> G[Care Decisions]
+
+    style B fill:#4a9eff,color:#fff
+    style C fill:#4a9eff,color:#fff
+    style E fill:#4a9eff,color:#fff
+    style F fill:#4a9eff,color:#fff
+    style D fill:#ff6b6b,color:#fff
+    style G fill:#ff6b6b,color:#fff
+```
+
+> 🔵 Agent-handled &nbsp; 🔴 Human-handled
+
+**What agents handle**:
+- Patient journey coordination: scheduling, reminders, follow-ups, referrals, care transitions
+- Real-time clinical documentation from patient encounters
+- Diagnostic support: analyzing labs, imaging, and patient history
+- Drug interaction checking across all medications and conditions
+- Population health monitoring: trends, outbreaks, at-risk populations
+- Clinical trial matching for eligible patients
+
+**What humans handle**:
+- Complex diagnosis requiring intuition and deep clinical knowledge
+- Procedures and physical care: surgery, examinations, hands-on treatment
+- Empathy, reassurance, and human presence
+- Ethical decisions: end-of-life care, resource allocation, informed consent
+- Care team agent oversight and coordination
+
+### The Experience Shift
+
+See [A Day With Agents](/tangible-futures/a-day-with-agents) for a detailed hospital department head walkthrough. The core shift: agents handle documentation and coordination, clinicians focus on patients.
+
+### Key Design Considerations
+
+- **Life-or-death stakes**: Agent errors can harm patients. Clinical approval flows must be rigorous without creating bottlenecks
+- **Health data sovereignty**: Agents need comprehensive data, but patients must maintain control
+- **Cultural sensitivity**: Agents must be culturally competent, not just multilingual
+- **The empathy question**: How should agents handle the emotional dimensions of health?
+- **Clinician trust**: Doctors must trust agent recommendations without becoming dependent on them
+- **Equity**: Agent-managed care must not widen health disparities: design for equity from the start

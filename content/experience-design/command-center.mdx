@@ -1,0 +1,45 @@
+# The Command Center Pattern
+
+## Your Workday Starts Differently
+
+Instead of opening a to-do list or inbox, you open a **command center**: a single surface showing the state of your agent team.
+
+## What It Shows
+
+```mermaid
+flowchart TD
+    CC[Command Center] --> CW[Completed Work]
+    CC --> PD[Pending Decisions]
+    CC --> BI[Blocked Items]
+    CC --> PS[Performance Signals]
+    CC --> EQ[Exception Queue]
+```
+
+### Agent Status Overview
+- **Completed work**: "12 claims processed. 3 inquiries resolved. 1 report generated."
+- **Pending decisions**: "2 items need your judgment."
+- **Blocked items**: "1 agent stuck: situation outside its guidelines."
+- **Performance signals**: "Claim processing time improved 15% this week."
+
+### Outcomes, Not Processes
+Show **outcomes, not activities**. Not "Agent processed row 4,532 of 12,000" but "Portfolio rebalancing complete. Estimated savings: $45K."
+
+### Exception Queue
+The most critical element: things agents couldn't handle alone, requiring human:
+- **Judgment**: Ambiguous situations
+- **Ethics**: Moral dimensions
+- **Authority**: Actions exceeding agent scope
+- **Creativity**: Novel thinking needed
+- **Empathy**: Genuine human connection needed
+
+## Design Principles
+
+1. **Morning briefing model**: Design for the first 10 minutes of the workday
+2. **Progressive disclosure**: Summary first, details on demand
+3. **Actionable over informational**: Every item has a clear next action
+4. **Temporal awareness**: Past, present, and upcoming across a time axis
+5. **Comparative context**: "This is unusual" vs. "This is expected"
+
+## What This Replaces
+
+One surface replaces the **fragmented multi-app experience**: email, Slack, CRM, analytics, project tracker. The apps still exist underneath, but agents interact with them, not you.

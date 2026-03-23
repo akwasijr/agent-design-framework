@@ -1,0 +1,276 @@
+# Coordination Zones and Curves
+
+## Moving Past the Binary
+
+For years, the design conversation around human-AI collaboration has been binary: either the human is "in the loop" or the system is "autonomous." This framing is too coarse. Real workflows are not binary. They shift constantly between moments where a person is deeply engaged and moments where the system works silently in the background.
+
+Building on decades of research into [levels of automation](https://doi.org/10.1109/3468.844354) (Parasuraman, Sheridan & Wickens, 2000), we can define a more useful model: **three zones of coordination** that describe the spectrum of human-AI collaboration, and **coordination curves** that map how a workflow moves between those zones over time.
+
+> The question is not whether the human is in the loop. It is how tightly the loop is drawn at any given moment, and whether it tightens and loosens at the right times.
+
+## The Three Zones
+
+Instead of a binary toggle, calibrate coordination across three zones. These are not rigid categories. They are regions on a spectrum defined by two dimensions: **AI salience** (how visible and prominent the AI's presence is) and **human involvement** (how actively the person participates in decision-making).
+
+| Zone | AI Salience | Human Involvement | Description |
+|---|---|---|---|
+| **Done with me** | High | High | Mutual collaboration. Frequent back-and-forth. |
+| **Done for me** | High | Low | Heavy automation. User initiates and reviews. |
+| **Done under me** | Low | Low | Discreet assistance. User may not notice the AI. |
+
+### Done With Me (Mutually Collaborative)
+
+The user and the agent work closely together. Both are actively present. The agent surfaces reasoning, asks questions, proposes alternatives. The user shapes direction, provides judgment, makes trade-offs. Interaction is frequent and bidirectional.
+
+**When this zone is appropriate:**
+- Complex decisions with ambiguous trade-offs
+- Creative work requiring human taste and judgment
+- High-stakes tasks where errors are costly
+- Early-stage trust building, where the user needs to understand how the agent thinks
+
+**Examples:** Co-writing a complex legal brief. Collaboratively designing a system architecture. Working through a diagnostic process with a clinical decision support agent.
+
+### Done For Me (Heavily Automated)
+
+The user provides intent and constraints. The agent takes it from there, handling research, synthesis, and execution with minimal interaction. The user reviews the output rather than participating in the process.
+
+**When this zone is appropriate:**
+- Well-defined tasks with clear success criteria
+- Research and synthesis tasks where the agent's speed is the primary value
+- Repetitive workflows that follow established patterns
+- Situations where the user's time is better spent elsewhere
+
+**Examples:** An agent researches competitors and delivers a structured summary. A scheduling agent coordinates a multi-timezone meeting. A procurement agent sources vendors, compares quotes, and presents a recommendation.
+
+### Done Under Me (Discreetly Assisted)
+
+The AI operates in the background. The user may not consciously register its presence. The system adjusts, sorts, filters, predicts, and personalises without announcing itself. The user is implicitly in the loop through their behaviour and choices, but they do not actively collaborate.
+
+**When this zone is appropriate:**
+- Low-risk, high-frequency tasks
+- Personalisation and optimisation
+- Tasks where interrupting the user would cost more than the value the AI adds
+- Mature systems with well-established trust
+
+**Examples:** Smart email sorting and prioritisation. Predictive text and autocomplete. Personalised content feeds. Automatic calendar conflict detection.
+
+### Zones Are Not Fixed
+
+A single workflow routinely moves between zones. Consider a financial analyst working with an AI agent on a quarterly report:
+
+1. **Done under me** - The agent monitors data feeds and flags anomalies overnight.
+2. **Done for me** - The agent compiles the initial draft, pulling relevant data and structuring the narrative.
+3. **Done with me** - The analyst and agent work through the interpretation of a surprising trend, debating which framing best serves the audience.
+4. **Done for me** - The agent formats the final document, generates charts, and prepares the distribution.
+
+The design challenge is not picking a zone. It is designing smooth transitions between zones within a single workflow.
+
+## Coordination Curves
+
+A coordination curve is a journey-map variant that plots **human involvement** and **AI salience** over time through a workflow. Where a traditional journey map shows emotional state or touchpoints, a coordination curve shows the intensity of collaboration.
+
+### Reading a Coordination Curve
+
+The horizontal axis is time (or workflow phase). Two lines move through the space:
+
+- **Human involvement** - How actively the person is participating. Peaks represent decision points, approvals, and creative judgment. Valleys represent periods where the agent works independently.
+- **AI salience** - How visible and prominent the AI's presence is. High salience means the agent is surfacing reasoning, asking questions, presenting options. Low salience means the agent is working quietly.
+
+The relationship between the two lines tells you the coordination zone:
+
+| Human Involvement | AI Salience | Zone |
+|---|---|---|
+| High | High | Done with me |
+| Low | High | Done for me |
+| Low | Low | Done under me |
+
+### Sample Coordination Curve
+
+The following illustrates a coordination curve for a product launch workflow. Each phase shifts between zones.
+
+```
+Human Involvement  ----    AI Salience  ....
+
+High |         *                                    *
+     |        * *            ....                  * *
+     |       *   *          .    .          ....  *   *
+     |  .....*    *   *    .      .        .    .*     *
+Mid  | .     *     * * *  .        .  *   .      *      *
+     |.      *      *   *.          .* * .       *       *
+     |       *          *.          .  *.        *
+     |        *        . *         .    .*       *
+Low  |         ****  ..   **     ..      .****  .
+     |             ..       ****..            ..
+     +----------------------------------------------------
+       Brief    Research   Strategy   Build    Launch
+       (under)  (for me)  (with me)  (for me) (with me)
+```
+
+In this example:
+- **Brief phase:** AI salience is moderate (agent is processing context), human involvement is low. Done under me.
+- **Research phase:** AI salience rises as the agent delivers findings. Human involvement stays low. Done for me.
+- **Strategy phase:** Both lines peak. Human and agent are collaborating closely on positioning. Done with me.
+- **Build phase:** Human involvement drops as the agent executes. AI salience stays elevated to keep the user informed. Done for me.
+- **Launch phase:** Both peak again as the team and agent coordinate real-time decisions. Done with me.
+
+### Designing for the Valleys
+
+The valleys in a coordination curve, where the agent works independently, are deceptively important. These are the moments where trust is built or broken. The user cannot see what the agent is doing, and that invisibility creates risk.
+
+Design questions for every valley:
+
+| Concern | Design Response |
+|---|---|
+| **Notification** | How does the user know the agent is working? What signals ongoing progress without interrupting? |
+| **Approval** | Are there checkpoints within the valley, or does the agent have full autonomy until the next peak? |
+| **Monitoring** | Can the user check in on progress without disrupting the agent's work? |
+| **Auditing** | After the valley, can the user review what happened and why? |
+| **Recovery** | If something went wrong during the valley, how does the user discover it and course-correct? |
+
+> The valleys in a coordination curve are where ambient awareness patterns become essential. The agent is working. The user needs to feel confident it is working well. See [Ambient Awareness](/experience-design/ambient-awareness) for patterns that address this.
+
+### Designing for the Peaks
+
+Peaks are the moments of highest collaboration intensity. They are also the moments of highest cognitive load. Design questions for every peak:
+
+- **Entry:** How does the user know it is time to engage? What context does the agent provide to get the user up to speed quickly?
+- **Shared state:** Can both the user and agent see the same information? Is the agent's reasoning visible?
+- **Exit:** How does the user signal that the collaborative phase is over and the agent can resume independent work?
+
+### Designing for Transitions
+
+The transitions between zones, the slopes on the coordination curve, are the highest-risk UX moments. A poorly designed transition feels like a jarring interruption or, worse, like the system silently took over without consent.
+
+**Upward transitions** (agent requests human involvement):
+- Provide context before asking for a decision
+- Explain why this moment requires human judgment
+- Make it easy to defer ("not now, remind me in an hour")
+
+**Downward transitions** (agent resumes independent work):
+- Confirm the handoff ("Got it. I will proceed with option B and check back when the draft is ready.")
+- Set expectations about what happens next and when
+- Provide an easy way to re-engage if the user changes their mind
+
+## Responsive Salience
+
+The three zones describe what coordination should look like. **Responsive salience** describes how the system decides which zone to operate in at any given moment.
+
+Rather than forcing users to manually adjust settings or choose a mode, a well-designed system calibrates its own salience based on contextual signals.
+
+### Calibration Signals
+
+| Signal Category | Examples | Effect on Salience |
+|---|---|---|
+| **Task complexity** | Multi-step reasoning, ambiguous inputs, novel situations | Higher complexity increases salience |
+| **Perceived risk** | Financial impact, irreversibility, regulatory exposure | Higher risk increases salience |
+| **User expertise** | Domain knowledge, time using the system, role | Higher expertise decreases salience |
+| **Historical trust** | Past approval rates, override frequency, feedback patterns | Stronger trust decreases salience |
+| **User state** | Focus mode, meeting, time of day, response latency | Busy state decreases interruption frequency |
+
+### The Calibration Dynamic
+
+When trust is low or risk is high, the system increases salience:
+- Richer explanations of reasoning
+- More frequent approval gates
+- Explicit surfacing of uncertainty
+- Step-by-step visibility into the agent's process
+
+When trust is high and risk is low, the system decreases salience:
+- Works quietly in the background
+- Reports results rather than process
+- Bundles updates into summaries
+- Only interrupts for genuine exceptions
+
+### Observed Patterns in Salience
+
+When salience calibration works well, users tend not to notice it. The system feels natural - surfacing the right information at the right intensity without demanding attention.
+
+But preferences diverge significantly between individuals:
+
+- Some users find high salience exhausting. They want the agent to "just handle it" and only surface results.
+- Others appreciate detailed guidance and feel uneasy when the agent works silently.
+- These preferences do not always correlate with expertise. Some experts want high salience for peace of mind. Some novices prefer low salience to avoid overwhelm.
+
+> The implication is that responsive salience cannot rely solely on algorithmic signals. It must also respect individual preference, and those preferences must be easy to express and adjust.
+
+This connects directly to Victor Yocco's [observation in Smashing Magazine](https://www.smashingmagazine.com/2026/02/designing-agentic-ai-practical-ux-patterns/) that agent UX must support a spectrum of user comfort levels. There is no single correct calibration. The system must adapt, and it must make the adaptation adjustable.
+
+## Design Implications
+
+### 1. Match Coordination Intensity to Context
+
+Do not design a single interaction model and apply it uniformly. Map your workflows and identify which zones they move through. A procurement workflow has different coordination needs than a creative workflow. Even within a single workflow, the appropriate zone shifts.
+
+### 2. Build Coordination Curves into Your Design Process
+
+Coordination curves should sit alongside journey maps and service blueprints as a standard design artefact. For every major workflow:
+
+- Plot human involvement and AI salience over time
+- Identify the peaks, valleys, and transitions
+- Design specific patterns for each phase
+- Test whether the transitions feel smooth or jarring
+
+### 3. Support Individual Variation
+
+Do not assume all users want the same coordination style. Provide mechanisms for users to shift their baseline:
+
+- A preference for more or less agent visibility
+- The ability to temporarily increase salience ("walk me through this one")
+- The ability to temporarily decrease salience ("just handle it")
+
+These should be lightweight adjustments, not buried settings pages.
+
+### 4. Design Zone Transitions Deliberately
+
+The moments where coordination intensity changes are the highest-risk moments in the experience. Every transition needs:
+
+- **Context setting** - The user should understand why the coordination style is changing.
+- **Consent** - The user should feel that they are choosing to delegate or engage, not that the system is forcing a mode on them.
+- **Reversibility** - It should be easy to shift back if the new zone does not feel right.
+
+### 5. Make the Invisible Auditable
+
+For every "done under me" or "done for me" period, the user should be able to review what happened after the fact. This is not about real-time monitoring. It is about the confidence that comes from knowing you can look under the hood whenever you want to.
+
+## Applying Coordination Zones
+
+### Healthcare
+
+A clinical decision support agent moves between zones throughout a patient encounter:
+
+- **Done under me:** Background monitoring of vitals, lab trends, medication interactions.
+- **Done for me:** Compiling the patient's history into a pre-visit summary.
+- **Done with me:** Working through a differential diagnosis with the clinician, surfacing evidence and counter-evidence.
+
+The coordination curve peaks sharply at diagnostic decision points and treatment planning. Salience must be high when patient safety is at stake, regardless of how experienced the clinician is.
+
+### Financial Services
+
+A portfolio management agent:
+
+- **Done under me:** Continuous market monitoring, risk scoring, compliance checking.
+- **Done for me:** Generating quarterly performance reports, rebalancing within pre-approved parameters.
+- **Done with me:** Collaborating on strategy changes in response to major market events.
+
+Regulatory requirements constrain where salience can be reduced. Certain decisions require documented human involvement regardless of trust level. The coordination curve must account for compliance as a design constraint.
+
+### Government Services
+
+A case management agent assisting a benefits officer:
+
+- **Done under me:** Pre-populating forms from existing records, flagging incomplete applications.
+- **Done for me:** Routing cases to appropriate departments, generating status notifications.
+- **Done with me:** Working through eligibility edge cases where policy is ambiguous or where the human impact of a decision warrants careful judgment.
+
+In government contexts, the "done under me" zone carries particular risk. Citizens may not know AI is involved in their case. Transparency requirements may mandate disclosure even when the AI's role is minimal. Coordination zones must be designed within the constraints of public accountability.
+
+---
+
+## Further Reading
+
+- Parasuraman, R., Sheridan, T.B., & Wickens, C.D. (2000). ["A Model for Types and Levels of Human Interaction with Automation."](https://doi.org/10.1109/3468.844354) *IEEE Transactions on Systems, Man, and Cybernetics.* The foundational framework for automation levels that coordination zones build upon.
+- Victor Yocco, ["Designing For Agentic AI: Practical UX Patterns For Control, Consent, And Accountability"](https://www.smashingmagazine.com/2026/02/designing-agentic-ai-practical-ux-patterns/) (Smashing Magazine, Feb 2026). Practical design patterns for agent-managed experiences, including discussion of calibration and user comfort spectrums.
+- Victor Yocco, ["Beyond Generative: The Rise Of Agentic AI And User-Centric Design"](https://www.smashingmagazine.com/2026/01/beyond-generative-rise-agentic-ai-user-centric-design/) (Smashing Magazine, Jan 2026). Research methods for designing agentic AI responsibly.
+- [Agent Journey Mapping](/experience-design/agent-journey-mapping) for mapping the full lifecycle of human-agent collaboration.
+- [Ambient Awareness](/experience-design/ambient-awareness) for the valleys in coordination curves, where the agent works independently and the user needs peripheral confidence.
+- [Approval Flow](/experience-design/approval-flow) for the peaks, where the user is actively engaged in decision-making.

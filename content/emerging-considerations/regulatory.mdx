@@ -1,0 +1,43 @@
+# Regulatory & Compliance
+
+## New Frameworks for Agent-Governed Work
+
+### The Emerging Question
+Current regulations assume **human decision-makers**. Agent-managed decisions in lending, healthcare, or education don't fit existing frameworks.
+
+### What Needs Regulating
+
+**Accountability**: Who's responsible when an agent decides wrong: deployer, organization, or creator?
+
+**Bias and fairness**: Agents can amplify systemic biases. Regulations must define fairness auditing and remediation.
+
+**Transparency**: "The algorithm decided" isn't sufficient. Explainability requirements need definition for agent decisions.
+
+**Data handling**: Balancing broad data access with privacy, especially for cross-border operations.
+
+**Safety-critical domains**: Healthcare, manufacturing, and transportation need testing, certification, and monitoring standards for agents.
+
+### The Regulatory Landscape by Industry
+
+| Industry | Key Regulatory Needs | Current Gaps |
+|---|---|---|
+| Banking & Finance | Fair lending, AML, capital requirements | Agent-specific audits, liability for agent trading |
+| Insurance | Fair pricing, claims handling, solvency | Fairness auditing for agent underwriting |
+| Healthcare | Patient safety, HIPAA, clinical standards | Agent clinical decision liability |
+| Government | Due process, equal protection, transparency | Algorithmic accountability, right to human review |
+| Education | Student privacy (FERPA), standards | Agent assessment validity, dependency concerns |
+| Manufacturing | Workplace safety (OSHA), product safety | Agent-controlled equipment certification |
+
+### Design Implications
+
+Regulation is a **design requirement**:
+
+- **Audit trails by default**: Every decision logged with full context
+- **Explainability interfaces**: Show how decisions were made, in human terms
+- **Compliance dashboards**: Real-time regulatory status visibility
+- **Right to human review**: Path to human review of any agent decision
+- **Regulatory update propagation**: Agent behavior updates traceably when rules change
+
+### The Pace Problem
+
+Technology outpaces regulation. Agents will operate in gray areas for years. Design can bridge this by **building governance before regulations require it**: regulation-ready, not just regulation-compliant. For example, ship every agent decision with a structured audit record (timestamp, inputs, model version, confidence score, outcome) now, even if no law mandates it: so when explainability regulations arrive, you flip a switch instead of retrofitting years of opaque logs.

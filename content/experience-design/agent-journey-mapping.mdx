@@ -1,0 +1,106 @@
+# Agent Journey Mapping
+
+## Beyond User Journeys
+
+User journeys map how a person moves through a product: discover, evaluate, use, return. Agent journeys are fundamentally different. There are two actors (human and agent), the relationship evolves over time, and the most important design moments are not the happy path but the points where things break.
+
+This section provides mental models for thinking about agent journeys and practical workshop activities for teams designing agent-managed experiences.
+
+## Four Mental Models
+
+### 1. The Supervision Loop
+
+A user journey is linear. An agent journey is a loop.
+
+```
+Delegate → Plan → Approve → Execute → Report → Learn → Repeat
+```
+
+The human enters and exits the loop at different points depending on trust. Early on, they are present at every step. Over time, they may only see the report. The design challenge is making every entry point feel natural rather than forced.
+
+### 2. Two Parallel Tracks
+
+Every agent journey has two simultaneous tracks:
+
+| Agent Track | Human Track |
+|---|---|
+| Interprets the goal | Sets intent and constraints |
+| Gathers context | Provides domain knowledge |
+| Proposes a plan | Reviews and approves |
+| Executes steps | Monitors or steps away |
+| Reports results | Evaluates and gives feedback |
+
+The interesting design moments are where these tracks intersect. Those intersection points are where the UX lives. Map both tracks together, not separately.
+
+### 3. Trust as a Journey Dimension
+
+User journeys do not change shape over time. Agent journeys do. The same workflow looks completely different depending on where the human and agent are in their trust relationship.
+
+| Trust Level | What the Journey Looks Like |
+|---|---|
+| **New** | Every step is visible. Every action needs approval. Full reasoning shown. |
+| **Building** | Routine steps happen autonomously. Major decisions still require approval. |
+| **Established** | Only exceptions surface. The human reviews summaries, not individual actions. |
+| **Trusted** | Agent operates independently. Human intervenes by exception only. |
+
+Mapping the journey at multiple trust levels reveals how the interface should simplify over time and where the "earned autonomy" moments are.
+
+### 4. Exception-First Mapping
+
+In user journey mapping, you typically start with the happy path. In agent journey mapping, start with where things break. The happy path is handled silently. The exceptions are where you actually design the interface.
+
+For any agent workflow, the key question is: **what are all the ways this can require human involvement?** See [Core Design Principles - Exceptions Over Routine](/design-principles/core-principles) for the six exception categories (judgment, authority, ethics, novelty, conflict, low confidence) and their corresponding interface patterns.
+
+## Approaches for Mapping Agent Journeys
+
+### Agent Journey Canvas
+
+A structured canvas for mapping how a specific workflow operates in an agent-managed world. It has rows for: human intent, agent interpretation, agent plan, approval points, execution, output and feedback loop. Teams can take a workflow they know well, map how it works today, then remap it as an agent journey to see where approvals sit and what can run silently.
+
+### Trust Level Stacking
+
+Take one workflow and map it at four trust levels: new (everything approved), building (routine auto, major approved), established (only exceptions surface), trusted (summary only). This reveals how the UX collapses over time and where the earned autonomy moments are. It also shows what would cause trust to move backwards.
+
+### Exception Storming
+
+Generate as many "what could go wrong" scenarios as possible for a given agent workflow, then categorise them: judgment, authority, ethics, novelty, conflict, low confidence. Each category implies a different interface pattern. Since the happy path runs silently, the exceptions are effectively the UX.
+
+### Handoff Mapping
+
+For multi-agent workflows, map every handoff point between agents. At each handoff: what information passes, what could be lost, where agents might have conflicting priorities, where a human needs visibility. Handoff points are where choreography UX gets designed.
+
+### "Day in the Life" Storyboard
+
+Storyboard a full workday for someone in a specific domain working with agents: morning briefing, first decisions, midday exception, afternoon review, end of day summary. This forces concrete, specific thinking rather than abstract descriptions of what agents could do.
+
+## Putting It Together
+
+These approaches work well in sequence: start with a Day in the Life to get grounded, then map the journey structure with the Canvas, find the edge cases through Exception Storming, see how it evolves with Trust Level Stacking, and design the multi-agent coordination through Handoff Mapping. The output is a comprehensive map of how humans and agents work together in a specific domain, with clear design implications for every interaction point.
+
+---
+
+## The Six Lifecycle Patterns
+
+> *Based on Victor Yocco, ["Designing For Agentic AI"](https://www.smashingmagazine.com/2026/02/designing-agentic-ai-practical-ux-patterns/) (Smashing Magazine, Feb 2026)*
+
+Six concrete UX patterns provide the building blocks for every interaction point in an agent journey. They follow the functional lifecycle: what happens before, during, and after the agent acts.
+
+### Pre-Action: Establishing Intent
+
+**1. Intent Preview** - Before any significant action, the agent shows a clear, reviewable plan with three paths: Proceed, Edit Plan, or Handle It Myself. See [Approval Flow](/experience-design/approval-flow) for the full anatomy of a good proposal, including the travel disruption recovery example.
+
+**2. Autonomy Dial** - Users set their preferred level of agent independence per task type, from *Observe and Suggest* through to *Act Autonomously*.
+
+### In-Action: Providing Context
+
+**3. Explainable Rationale** - After acting, the agent explains why: "Because you said X, I did Y." This builds the user's mental model of how the agent thinks.
+
+**4. Confidence Signal** - The agent surfaces its own certainty level through visual cues or scope declarations. Prevents automation bias.
+
+### Post-Action: Safety and Recovery
+
+**5. Action Audit and Undo** - Every agent action is logged in a human-readable timeline with a clear undo path.
+
+**6. Escalation Pathway** - When the agent is stuck, it escalates with full context: what it tried, why it's stuck, what it recommends.
+
+These patterns layer on top of the mental models. The Supervision Loop tells you the shape of the journey; the lifecycle patterns tell you what to build at each point in the loop. The [Coordination Zones](/experience-design/coordination-zones) tell you how visible each pattern needs to be for a given user, task, and context. For metrics on measuring these patterns, see [Trust Building - Metrics That Matter](/design-principles/trust-building).
