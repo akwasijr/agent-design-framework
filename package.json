@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && pagefind --site out",
     "start": "next start"
   },
   "keywords": [],
@@ -17,6 +17,7 @@
     "nextra-theme-docs": "^4.6.1"
   },
   "devDependencies": {
+    "pagefind": "^1.4.0",
     "pptxgenjs": "^4.0.1",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
