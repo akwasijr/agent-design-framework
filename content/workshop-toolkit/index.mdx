@@ -1,71 +1,93 @@
-# Workshop Toolkit
+# Workshop Modes
 
-Designing agent experiences requires input from people who rarely think in terms of AI: operations leads, compliance officers, domain experts. Most stakeholders can describe how their work runs today, but very few can articulate what an agent should do, when it should ask for help, or where trust breaks down.
+import { Tabs } from 'nextra/components'
 
-The goal of these workshops is not to ask stakeholders to design the agent. It is to create conditions where their expertise surfaces naturally, so you can translate it into design requirements for [trust building](/design-principles/trust-building), [approval flows](/experience-design/approval-flow), [coordination zones](/experience-design/coordination-zones), and [agent behaviour boundaries](/design-principles/agentic-sludge).
+Designing agent experiences requires input from people who rarely think in terms of AI. The goal is not to ask stakeholders to design the agent, but to create conditions where their expertise surfaces naturally. Four frameworks anchor the conversation: the **Delegation Ladder** (based on [Parasuraman, Sheridan & Wickens, 2000](https://doi.org/10.1109/3468.844354)) places tasks on a spectrum from "Watch Me" to "Do It"; the **Trust Battery** (adapted from [Lee & See, 2004](https://doi.org/10.1518/hfes.46.1.50.30392)) tracks what charges and drains trust; the **Blast Radius Map** (adapted from [FMEA](https://asq.org/quality-resources/fmea)) sizes the consequences of agent errors into inner (reversible), middle (costly), and outer (irreversible) rings; and the **Information Asymmetry Grid** (inspired by the [Johari Window](https://en.wikipedia.org/wiki/Johari_window)) maps what the agent knows vs what the user knows to identify danger zones. Disagreement between stakeholders is the primary design input.
+
+<Tabs items={['In-Person Workshop', 'Remote Workshop']}>
+  <Tabs.Tab>
+    ### In-Person Workshop
+
+    **What's different from a standard UX workshop:** You are not mapping tasks to screens. You are mapping tasks to delegation levels, trust thresholds, and failure recovery paths. Stakeholders are designing for something they have never used, so you use indirect techniques (the frameworks above) to surface requirements without asking people to imagine the end product. Disagreement between stakeholders is the primary design input, not something to resolve.
+
+    #### Activities
+
+    **Task inventory and delegation placement.** Everyone writes every task they can think of on sticky notes. Cluster by similarity, then place each task on the Delegation Ladder poster. Where people place the same task at different levels, stop and discuss. Those disagreements reveal where the agent needs adaptive behaviour or configurable autonomy.
+
+    **Blast radius mapping.** Take the key tasks and physically place them on the concentric circles drawn on the whiteboard. For each outer-ring task, walk through the failure scenario: "The agent gets this wrong. What happens next? Who is affected? How bad does it get?" This surfaces the approval flow and guardrail requirements.
+
+    **Trust battery discussion.** For 3-4 key tasks, have the group discuss what charges and drains the trust battery. Capture the conditions ("I'd trust it if it showed me its reasoning", "I'd lose trust if it acted without asking on anything financial"). These conditions become your transparency and escalation design requirements.
+
+    **Failure mode storytelling.** Read a scenario aloud: "The agent just did [something wrong]." Each participant writes what went wrong, what the user should see, and what should happen next. Share and cluster by theme. This gives you your error handling and recovery patterns.
+
+    **"Where's the human?" walkthrough.** Walk through a draft agent workflow on the whiteboard. At each step, participants place green dots (agent can act alone) or red dots (human checkpoint needed). For every red dot, capture what the human needs to see to make a good decision.
+
+    **Red team round.** Ask: "You are trying to get this agent to do something it shouldn't. How would you trick it?" Stakeholders who work in the domain imagine more realistic abuse scenarios than security teams. Each scenario maps to a constraint or guardrail.
+
+    **Coordination zone mapping.** For each key task, stakeholders decide: should this be *done with me* (human and agent collaborate closely), *done for me* (agent handles it, human reviews the result), or *done under me* (agent works silently in the background)? This is different from the Delegation Ladder. The ladder asks *how much autonomy*. This asks *how visible should the agent be while working*. A task can be highly autonomous but still need high visibility. See [Coordination Zones](/experience-design/coordination-zones).
+
+    **Exception storming.** Instead of mapping the happy path, brainstorm every way a workflow could require human involvement, even when nothing has gone wrong. Categorise each exception: Judgment (ambiguous data), Authority (exceeds agent scope), Ethics (values at stake), Novelty (never seen before), Conflict (agents disagree), Low confidence (multiple equally likely outcomes). Each category implies a different interface pattern. Since the happy path runs silently, the exceptions *are* the UX. See [Agent Journey Mapping](/experience-design/agent-journey-mapping).
+
+    **Values translation.** Ask stakeholders to express what they care about in their own words: "Be conservative with client money", "Never send anything externally without checking with me", "Prioritise speed over perfection for internal reports." Capture these as natural-language statements, then map each one to a concrete agent boundary (approval gate, hard constraint, notification trigger, or autonomy limit). This surfaces the real priorities that technical settings would miss. See [Core Design Principles](/design-principles/core-principles).
+
+    **Sludge spotting.** Present the [six forms of agentic sludge](/design-principles/agentic-sludge) (opaque autonomy, consent erosion, recovery friction, attention manipulation, autonomy creep, opaque optimisation). For each form, ask: "Where could this show up in our agent workflow?" Stakeholders who know the domain will identify realistic scenarios where the agent could gradually undermine user control. Each scenario maps to a specific counter-pattern.
+
+    #### What you walk away with
+    - Tasks ranked by delegation readiness and risk
+    - Trust thresholds and conditions per task type
+    - A failure and edge case library
+    - Human checkpoint map for key workflows
+    - Threat model grounded in domain expertise
+    - Coordination zone assignments per task
+    - Exception taxonomy for each workflow
+    - Natural-language value statements mapped to agent boundaries
+    - Sludge risk assessment with counter-patterns
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ### Remote Workshop
+
+    **What's different:** Fewer activities, more facilitator-led. Silent writing replaces open discussion for most prompts (participants type responses before anyone shares, preventing anchoring). The facilitator pre-builds the frameworks as digital templates so participants drag and drop rather than create from scratch.
+
+    #### Activities
+
+    **Delegation ladder placement.** The facilitator shares a digital board with the ladder. Participants silently drag their tasks to the level where they'd be comfortable with an agent operating. The facilitator then walks through the clusters, focusing on where placements diverge.
+
+    **Blast radius quick-sort.** The facilitator presents 10-15 key tasks one at a time. For each, participants vote (poll or reaction): inner ring, middle ring, or outer ring. The facilitator captures the split votes and probes: "Three of you said outer ring, two said middle. What are you each imagining going wrong?"
+
+    **Scenario reactions.** The facilitator presents 3-4 pre-written scenarios ("The agent just...") and asks participants to type their response in chat or on the board: What went wrong? What should the user see? What should happen next? The facilitator synthesises live and pulls out the key themes.
+
+    **Trust boundary definition.** The facilitator walks through the Information Asymmetry Grid with specific examples from the domain. For each quadrant, participants contribute examples. Focus discussion on the bottom-right (neither knows) since that is where the strongest guardrails are needed.
+
+    **Coordination zone voting.** The facilitator presents key tasks and participants vote for each: *done with me*, *done for me*, or *done under me*. This captures how visible the agent should be during each task, which is different from the delegation level. A task can be autonomous but still need high agent visibility. Split votes reveal where users have different comfort levels with agent presence. See [Coordination Zones](/experience-design/coordination-zones).
+
+    **Exception brainstorm.** Participants silently type every way a given workflow could require human involvement (not just failures, but judgment calls, authority questions, ethical tensions, novel situations). The facilitator clusters them live and maps each to an interface pattern. The exceptions are the UX since the happy path runs silently. See [Agent Journey Mapping](/experience-design/agent-journey-mapping).
+
+    **Values capture.** Each participant types 3-5 statements about what they care about in their own words ("Never commit budget without my sign-off", "Speed matters more than perfection for internal drafts"). The facilitator groups these into themes and maps each to a concrete agent boundary. See [Core Design Principles](/design-principles/core-principles).
+
+    #### What you walk away with
+    - Delegation levels for key tasks with divergence points flagged
+    - Risk-ranked task list
+    - Failure scenarios and expected recovery patterns
+    - Trust boundaries and transparency requirements
+    - Coordination zone assignments per task
+    - Exception taxonomy for key workflows
+    - Natural-language value statements mapped to agent boundaries
+  </Tabs.Tab>
+</Tabs>
 
 ---
 
-## The Core Frameworks
+## Turning Workshop Output into Design Requirements
 
-These give stakeholders a shared vocabulary for reasoning about agent behaviour. Use them to anchor every workshop conversation.
-
-### The Delegation Ladder
-
-Based on [Parasuraman, Sheridan & Wickens' Levels of Automation model](https://doi.org/10.1109/3468.844354) (2000). Automation is not binary. It exists on a spectrum.
-
-| Level | Agent Role | Human Role |
-|---|---|---|
-| **Watch Me** | Observes the human working | Performer |
-| **Help Me** | Assists when asked | Director |
-| **Advise Me** | Proactively suggests | Decision-maker |
-| **Do It, I'll Check** | Acts, human reviews before it's final | Reviewer |
-| **Do It, Tell Me** | Acts and reports after | Monitor |
-| **Do It** | Handles end to end | Escalation point |
-
-Stakeholders place every task in their domain on this ladder. The disagreements between people are the design input.
-
-### The Trust Battery
-
-Adapted from [Tobi Lutke's trust battery concept](https://fs.blog/knowledge-project-podcast/tobi-lutke/) and [Lee & See's research on trust in automation](https://doi.org/10.1518/hfes.46.1.50.30392) (2004). Every agent starts at around 50%. Successful interactions charge it. Mistakes drain it.
-
-Key questions for stakeholders:
-- What charges the battery fast? (Transparency? Speed? Accuracy?)
-- What drains it immediately?
-- At what level would you let the agent act without checking?
-- What would it take to recharge after a major drain?
-
-### The Blast Radius Map
-
-Adapted from [Failure Mode and Effects Analysis (FMEA)](https://asq.org/quality-resources/fmea). For every agent action, ask: "If the agent gets this wrong, what's the worst that happens?"
-
-Draw concentric circles:
-- **Inner ring (low impact, reversible):** Rescheduling an internal meeting, drafting a summary
-- **Middle ring (costly but reversible):** Sending an email to a client, reordering inventory
-- **Outer ring (irreversible or high impact):** Submitting a regulatory filing, transferring funds
-
-The ring determines the approval level. Inner ring tasks can be autonomous. Outer ring tasks need human confirmation.
-
-### The Information Asymmetry Grid
-
-Inspired by the [Johari Window](https://en.wikipedia.org/wiki/Johari_window) (Luft & Ingham, 1955). Agents know things users don't (data patterns at scale). Users know things agents don't (context, intent, politics).
-
-| | Agent Knows | Agent Doesn't Know |
-|---|---|---|
-| **User Knows** | Shared ground. Agent acts with confidence. | User must inform the agent. Design for easy input. |
-| **User Doesn't Know** | Agent must explain. Design for proactive disclosure. | Danger zone. Design for caution and escalation. |
-
----
-
-## Workshop Modes
-
-See [Workshop Modes](/workshop-toolkit/workshop-modes) for the two formats: in-person (full room with whiteboards and stickies) and remote (facilitator-driven, a few hours on video call).
-
----
-
-## References
-
-- Parasuraman, R., Sheridan, T. B. & Wickens, C. D. (2000). [A Model for Types and Levels of Human Interaction with Automation](https://doi.org/10.1109/3468.844354). *IEEE Transactions on Systems, Man, and Cybernetics*, 30(3), 286-297. The foundational taxonomy of automation levels that the Delegation Ladder adapts.
-- Lee, J. D. & See, K. A. (2004). [Trust in Automation: Designing for Appropriate Reliance](https://doi.org/10.1518/hfes.46.1.50.30392). *Human Factors*, 46(1), 50-80.
-- Lutke, T. (2018). [The Trust Battery](https://fs.blog/knowledge-project-podcast/tobi-lutke/). The Knowledge Project Podcast, Episode 41.
-- U.S. Military (1949). MIL-P-1629: Failure Mode and Effects Analysis. [Overview at ASQ](https://asq.org/quality-resources/fmea).
+| Workshop Output | Design Requirement |
+|---|---|
+| Delegation Ladder placements | Autonomy levels per task type |
+| Blast Radius positions | [Approval flow](/experience-design/approval-flow) requirements |
+| Trust battery conditions | [Trust building](/design-principles/trust-building) and transparency patterns |
+| Failure mode stories | Error handling and recovery flows |
+| Red dot placements | Human-in-the-loop checkpoints |
+| Red team scenarios | Constraint and guardrail specifications |
+| Coordination zone assignments | [Coordination zone](/experience-design/coordination-zones) design per task (visibility and collaboration intensity) |
+| Exception taxonomy | Interface patterns per exception type (judgment, authority, ethics, novelty, conflict) |
+| Value statements | Agent boundary rules expressed in natural language |
+| Sludge risk scenarios | Counter-pattern requirements to prevent [agentic sludge](/design-principles/agentic-sludge) |
